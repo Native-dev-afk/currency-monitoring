@@ -19,7 +19,7 @@ const IntroTitle = () => {
   return (
     <Stack style={{ maxWidth: '654px', width: '100%' }} spacing={55} py={'121px'}>
       <Title order={1}>
-        Arizalaringizni onlayn <span style={{ color: colors.text_light }}>ko'rib boring</span>
+        Valyuta narxlarini onlayn <span style={{ color: colors.text_light }}>kuzating va ayirboshlang!</span>
       </Title>
       {/* <Text size="md">Notarius nomidagi davlat mukofoti uchun onlayn ariza topshirish tizimi</Text> */}
       <Group>
