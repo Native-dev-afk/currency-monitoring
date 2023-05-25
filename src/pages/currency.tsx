@@ -24,9 +24,13 @@ const Monitoring = () => {
         <div style={{ width: '100%', padding: 20, }}>
             <h2>Valyutaning bugingi kunlik ayirboshlash narxlari</h2>
             <Stack style={{ height: 400, flexWrap: 'wrap', width: '100%', alignSelf: 'center', overflow: 'scroll', marginRight: 20 }}>
-                {currencies?.conversion_rates ? Object.keys(currencies?.conversion_rates).map(function (key, index) {
-                    return <div style={{ background: 'green', color: 'white', padding: 8, borderRadius: 4 }}>{key + ": " + currencies?.conversion_rates[key]}</div>
-                }) : ''}
+                {
+                    // @ts-expect-error
+                    currencies?.conversion_rates ? Object.keys(currencies?.conversion_rates).map(function (key, index) {
+                        return <div style={{ background: 'green', color: 'white', padding: 8, borderRadius: 4 }}>{
+                            // @ts-expect-error
+                            key + ": " + currencies?.conversion_rates[key]}</div>
+                    }) : ''}
             </Stack>
         </div>
     )

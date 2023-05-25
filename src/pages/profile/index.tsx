@@ -168,9 +168,9 @@ const data = ["USD",
   "ZMW",
   "ZWL",]
 const Profile = () => {
-  const [firstCur, setFirstCur] = useState();
-  const [secondCur, setSecondCur] = useState();
-  const [res, setRes] = useState();
+  const [firstCur, setFirstCur] = useState('');
+  const [secondCur, setSecondCur] = useState('');
+  const [res, setRes] = useState({});
 
   async function currencyFetch() {
     try {
@@ -203,12 +203,20 @@ const Profile = () => {
 
         }} style={{ width: '300px', margin: '0 auto' }}>
           <Stack>
-            <Select searchable required data={data} label="1 - valyuta tanlang" onChange={(e) => { setFirstCur(e) }} />
-            <Select searchable required data={data} onChange={(e) => { setSecondCur(e) }} label="2 - valyuta tanlang" />
+            <Select searchable required data={data} label="1 - valyuta tanlang" onChange={(e) => {
+              // @ts-expect-error
+              setFirstCur(e)
+            }} />
+            <Select searchable required data={data} onChange={(e) => {
+              // @ts-expect-error
+              setSecondCur(e)
+            }} label="2 - valyuta tanlang" />
             <Button type='submit'>Ko'rish</Button>
           </Stack>
         </form>
-        {res ? <h5 style={{ textAlign: 'center' }}>Ayirboshlash o'rtacha narxi: {res?.conversion_rate}</h5> : ''}
+        {res ? <h5 style={{ textAlign: 'center' }}>Ayirboshlash o'rtacha narxi: {
+          // @ts-expect-error
+          res?.conversion_rate}</h5> : ''}
       </div>
     </>
   );
